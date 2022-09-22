@@ -1,6 +1,9 @@
 package AukcioProjeckt;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Festmeny {
@@ -12,16 +15,18 @@ public class Festmeny {
     private LocalDateTime legutolsoLicitIdeje;
     private boolean elkelt;
 
+
+
+
+
     public Festmeny(String cim, String festo, String stilus) {
         this.cim = cim;
         this.festo = festo;
         this.stilus = stilus;
-    }
+        this.licitekSzama = 0;
+        this.legmagasabbLicit = 0;
+        this.elkelt = false;
 
-    public Festmeny(int licitekSzama, int legmagasabbLicit, boolean elkelt) {
-        this.licitekSzama = licitekSzama;
-        this.legmagasabbLicit = legmagasabbLicit;
-        this.elkelt = elkelt;
     }
 
     public String getFesto() {
