@@ -14,8 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
         festmenyek = new ArrayList<>();
-        festmenyek.add(new Festmeny("", "", ""));
-        festmenyek.add(new Festmeny("", "", ""));
+        festmenyek.add(new Festmeny("elso", "elsokesz", "stilus1"));
+        festmenyek.add(new Festmeny("masodik", "masodikkesz", "stilus2"));
         Scanner sc = new Scanner(System.in);
         System.out.print("Kérem adja meg, hogy mennyi elemet adna hozzá a listához: ");
         int szam = sc.nextInt();
@@ -35,6 +35,8 @@ public class Main {
             e.printStackTrace(System.err);
         }
         kiir();
+        fel2d();
+        //fel2e();
     }
 
     public static void beolvas(String fileName) throws IOException {
@@ -54,6 +56,19 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             System.out.println(festmenyek);
         }
+    }
+    public static void fel2d(){
+        for (int i = 0; i < 20; i++) {
+            int feldob = (int)(Math.random() * festmenyek.size());
+            festmenyek.get(feldob).licit();
+        }
+    }
+    public static void fel2e(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Kérem adja meg, hogy melyik festményre szeretne licitálni: ");
+        int bekert = sc.nextInt();
+        sc.nextLine();
+
     }
 }
 

@@ -14,11 +14,6 @@ public class Festmeny {
     private int legmagasabbLicit;
     private LocalDateTime legutolsoLicitIdeje;
     private boolean elkelt;
-
-
-
-
-
     public Festmeny(String cim, String festo, String stilus) {
         this.cim = cim;
         this.festo = festo;
@@ -26,7 +21,6 @@ public class Festmeny {
         this.licitekSzama = 0;
         this.legmagasabbLicit = 0;
         this.elkelt = false;
-
     }
 
     public String getFesto() {
