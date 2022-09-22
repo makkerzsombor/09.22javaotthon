@@ -34,9 +34,10 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace(System.err);
         }
-        kiir();
         fel2d();
+        kiir();
         //fel2e();
+        kiir();
     }
 
     public static void beolvas(String fileName) throws IOException {
@@ -68,7 +69,25 @@ public class Main {
         System.out.print("Kérem adja meg, hogy melyik festményre szeretne licitálni: ");
         int bekert = sc.nextInt();
         sc.nextLine();
-
+        if (bekert != 0){
+            if (bekert-1 < 0 || bekert-1 > festmenyek.size()){
+                System.out.print("Hiba ilyen számú elem nem létezik. Kérem írjon be egy új számot: ");
+                bekert = sc.nextInt();
+                sc.nextLine();
+            } else if (festmenyek.get(bekert-1).isElkelt()){
+                System.out.println("Ez a festmény elkelt.");
+            } else{
+                System.out.print("Kérem adja meg, hogy mennyit szeretne licitálni: ");
+                int osszeg = sc.nextInt();
+                sc.nextLine();
+                festmenyek.get(bekert-1).licit(osszeg);
+                System.out.printf("A számadik elem a: %s",festmenyek.get(bekert-1));
+            }
+        }else{
+            System.out.println("Kilépés...");
+        }
     }
+
+
 }
 

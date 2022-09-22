@@ -50,7 +50,6 @@ public class Festmeny {
     public void setElkelt(boolean elketlt) {
 
     }
-
     public void licit() {
         if (elkelt) {
             System.out.println("A festmény már elkelt!");
@@ -64,17 +63,13 @@ public class Festmeny {
             this.legutolsoLicitIdeje = LocalDateTime.now();
         }
     }
-
     public void licit(int mertek) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Kérem adjon meg egy számot 10 és 100 között.");
         if (licitekSzama != 0) {
             this.legmagasabbLicit = (int) (legmagasabbLicit * 1.1);
         } else {
             legmagasabbLicit = legmagasabbLicit * (mertek / 100 + 1);
         }
     }
-
     @Override
     public String toString() {
         return "\n"+this.festo + ": " + this.cim + "(" + this.stilus + ")\n" +
