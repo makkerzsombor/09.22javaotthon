@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class Main {
 
     static List<Festmeny> festmenyek;
+    static List<Festmeny> sorfestmeny;
 
     public static void main(String[] args) {
         festmenyek = new ArrayList<>();
@@ -42,6 +43,8 @@ public class Main {
         kiir();
         //fel3b();
         //fel3c();
+        //fel3d();
+        //fel3d();
     }
 
     public static void listurites() {
@@ -130,5 +133,13 @@ public class Main {
         }
         System.out.printf("Feladat 3/c: Összesen %d festmény nem kelt el.",nemkeltel);
     }
+
+    //public static void fel3d(){
+    //    for (int i = 0; i < festmenyek.size(); i++) {
+    //    if (festmenyek.get(i).getLegmagasabbLicit()>10){
+    //
+    //        }
+    //    }
+    //}
 }
 
