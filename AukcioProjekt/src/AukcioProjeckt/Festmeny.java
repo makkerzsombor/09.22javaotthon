@@ -31,6 +31,8 @@ public class Festmeny {
         return stilus;
     }
 
+    public String getCim() {return cim;    }
+
     public int getLicitekSzama() {
         return licitekSzama;
     }
@@ -38,6 +40,10 @@ public class Festmeny {
     public int getLegmagasabbLicit() {
         return legmagasabbLicit;
     }
+    public int setLegmagasabbLicit() {
+        return legmagasabbLicit;
+    }
+
 
     public void setLegmagasabbLicit(int legmagasabbLicit) {
         this.legmagasabbLicit = legmagasabbLicit;
@@ -51,8 +57,8 @@ public class Festmeny {
         return elkelt;
     }
 
-    public void setElkelt(boolean elketlt) {
-
+    public void setElkelt(boolean elkelt) {
+        this.elkelt=elkelt;
     }
     public void licit() {
         if (elkelt) {
@@ -69,15 +75,17 @@ public class Festmeny {
     }
     public void licit(int mertek) {
         if (licitekSzama != 0) {
-            this.legmagasabbLicit = (int) (legmagasabbLicit * 1.1);
+            legmagasabbLicit = 100+((legmagasabbLicit * mertek)/100);
+            licitekSzama++;
         } else {
-            legmagasabbLicit = legmagasabbLicit * (mertek / 100 + 1);
+            legmagasabbLicit = 100;
+            licitekSzama++;
         }
     }
     @Override
     public String toString() {
         return "\n"+this.festo + ": " + this.cim + "(" + this.stilus + ")\n" +
                 this.elkelt + "\n" +
-                "Legmagasabb licit: " + this.legmagasabbLicit + " legutolsó licit Ideje: ( összesen: " + this.licitekSzama + " db)\n";
+                "Legmagasabb licit: " + this.legmagasabbLicit + " legutolsó licit Ideje: " + this.legutolsoLicitIdeje+" ( összesen: " + this.licitekSzama + " db)\n";
     }
 }
