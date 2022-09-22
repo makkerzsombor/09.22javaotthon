@@ -14,6 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         festmenyek = new ArrayList<>();
+        listurites();
         festmenyek.add(new Festmeny("elso", "elsokesz", "stilus1"));
         festmenyek.add(new Festmeny("masodik", "masodikkesz", "stilus2"));
         Scanner sc = new Scanner(System.in);
@@ -35,9 +36,14 @@ public class Main {
             e.printStackTrace(System.err);
         }
         fel2d();
-        kiir();
+        //kiir();
         //fel2e();
+        fel3a();
         kiir();
+    }
+
+    public static void listurites(){
+        festmenyek.clear();
     }
 
     public static void beolvas(String fileName) throws IOException {
@@ -53,41 +59,54 @@ public class Main {
         br.close();
         fr.close();
     }
+
     public static void kiir() {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(festmenyek);
+        for (int i = 0; i < festmenyek.size(); i++) {
+            System.out.println(festmenyek.get(i));
         }
     }
-    public static void fel2d(){
+
+    public static void fel2d() {
         for (int i = 0; i < 20; i++) {
-            int feldob = (int)(Math.random() * festmenyek.size());
+            int feldob = (int) (Math.random() * festmenyek.size());
             festmenyek.get(feldob).licit();
         }
     }
-    public static void fel2e(){
+
+    public static void fel2e() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Kérem adja meg, hogy melyik festményre szeretne licitálni: ");
         int bekert = sc.nextInt();
         sc.nextLine();
-        if (bekert != 0){
-            if (bekert-1 < 0 || bekert-1 > festmenyek.size()){
+        if (bekert != 0) {
+            if (bekert - 1 < 0 || bekert - 1 > festmenyek.size()) {
                 System.out.print("Hiba ilyen számú elem nem létezik. Kérem írjon be egy új számot: ");
                 bekert = sc.nextInt();
                 sc.nextLine();
-            } else if (festmenyek.get(bekert-1).isElkelt()){
+            } else if (festmenyek.get(bekert - 1).isElkelt()) {
                 System.out.println("Ez a festmény elkelt.");
-            } else{
+            } else {
                 System.out.print("Kérem adja meg, hogy mennyit szeretne licitálni: ");
                 int osszeg = sc.nextInt();
                 sc.nextLine();
-                festmenyek.get(bekert-1).licit(osszeg);
-                System.out.printf("A számadik elem a: %s",festmenyek.get(bekert-1));
+                festmenyek.get(bekert - 1).licit(osszeg);
+                System.out.printf("A számadik elem a: %s", festmenyek.get(bekert - 1));
             }
-        }else{
+        } else {
             System.out.println("Kilépés...");
         }
     }
 
-
+    public static void fel3a() {
+        int maxosszeg = 0;
+        int index = 0;
+        for (int i = 0; i < festmenyek.size(); i++) {
+            if (festmenyek.get(i).getLegmagasabbLicit() > maxosszeg) {
+                maxosszeg = festmenyek.get(i).getLegmagasabbLicit();
+                index = i;
+            }
+        }
+        System.out.printf("Feladat3a: A legdrágább festmény a %s",festmenyek.get(index));
+    }
 }
 

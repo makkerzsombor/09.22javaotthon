@@ -39,6 +39,10 @@ public class Festmeny {
         return legmagasabbLicit;
     }
 
+    public void setLegmagasabbLicit(int legmagasabbLicit) {
+        this.legmagasabbLicit = legmagasabbLicit;
+    }
+
     public LocalDateTime getLegutolsoLicitIdeje() {
         return legutolsoLicitIdeje;
     }
