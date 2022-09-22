@@ -1,6 +1,7 @@
 package AukcioProjeckt;
 
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 public class Festmeny {
     private String cim;
@@ -47,25 +48,32 @@ public class Festmeny {
         return elkelt;
     }
 
-    public void setElkelt(boolean elketlt){
+    public void setElkelt(boolean elketlt) {
 
     }
 
-    public void licit(){
-        if (this.elkelt == true){
+    public void licit() {
+        if (this.elkelt == true) {
             System.out.println("A festmény már elkelt!");
-        }else if (this.licitekSzama == 0){
+        } else if (this.licitekSzama == 0) {
             this.legmagasabbLicit = 100;
-            this.licitekSzama = licitekSzama+1;
+            this.licitekSzama = licitekSzama + 1;
             this.legutolsoLicitIdeje = LocalDateTime.now();
         } else if (this.licitekSzama >= 1) {
             this.legmagasabbLicit = (int) (legmagasabbLicit * 1.1);
-            this.licitekSzama = licitekSzama+1;
+            this.licitekSzama = licitekSzama + 1;
             this.legutolsoLicitIdeje = LocalDateTime.now();
         }
     }
 
-    public void licit(int mertek){
-
+    public void licit(int mertek) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Kérem adjon meg egy számot 10 és 100 között.");
+        int szazalek = sc.nextInt();
+        while(szazalek<10 || szazalek>100){
+            System.out.println("Hiba a szám 10 és 100 között kell, hogy legyen.");
+            szazalek = sc.nextInt();
+        }
+        this.legmagasabbLicit = legmagasabbLicit * szazalek/100+1;
     }
 }
