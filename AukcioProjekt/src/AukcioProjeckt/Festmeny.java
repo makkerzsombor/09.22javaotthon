@@ -53,7 +53,7 @@ public class Festmeny {
     }
 
     public void licit() {
-        if (this.elkelt == true) {
+        if (elkelt) {
             System.out.println("A festmény már elkelt!");
         } else if (this.licitekSzama == 0) {
             this.legmagasabbLicit = 100;
@@ -69,18 +69,17 @@ public class Festmeny {
     public void licit(int mertek) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Kérem adjon meg egy számot 10 és 100 között.");
-        while (mertek < 10 || mertek > 100) {
-            System.out.println("Hiba a szám 10 és 100 között kell, hogy legyen.");
-            System.out.print("Kérem adjon meg egy másik számot: ");
-            mertek = sc.nextInt();
+        if (licitekSzama != 0) {
+            this.legmagasabbLicit = (int) (legmagasabbLicit * 1.1);
+        } else {
+            legmagasabbLicit = legmagasabbLicit * (mertek / 100 + 1);
         }
-        this.legmagasabbLicit = legmagasabbLicit * mertek / 100 + 1;
     }
 
     @Override
     public String toString() {
-        return this.festo+": "+this.festo+"("+this.stilus+")\n" +
-                this.elkelt+"\n" +
-                "Legmagasabb licit: "+this.legmagasabbLicit+" legutolsó licit Ideje: ( összesen: "+ this.licitekSzama+" db)";
+        return this.festo + ": " + this.festo + "(" + this.stilus + ")\n" +
+                this.elkelt + "\n" +
+                "Legmagasabb licit: " + this.legmagasabbLicit + " legutolsó licit Ideje: ( összesen: " + this.licitekSzama + " db)";
     }
 }
