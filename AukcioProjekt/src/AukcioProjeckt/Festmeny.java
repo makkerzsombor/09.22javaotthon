@@ -83,8 +83,8 @@ public class Festmeny {
 
     @Override
     public String toString() {
-        return this.festo + ": " + this.festo + "(" + this.stilus + ")\n" +
+        return "\n"+this.festo + ": " + this.cim + "(" + this.stilus + ")\n" +
                 this.elkelt + "\n" +
-                "Legmagasabb licit: " + this.legmagasabbLicit + " legutolsó licit Ideje: ( összesen: " + this.licitekSzama + " db)";
+                "Legmagasabb licit: " + this.legmagasabbLicit + " legutolsó licit Ideje: ( összesen: " + this.licitekSzama + " db)\n";
     }
 }
