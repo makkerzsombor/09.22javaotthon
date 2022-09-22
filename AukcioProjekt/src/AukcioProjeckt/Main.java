@@ -38,11 +38,13 @@ public class Main {
         fel2d();
         //kiir();
         //fel2e();
-        fel3a();
+        //fel3a();
         kiir();
+        //fel3b();
+        //fel3c();
     }
 
-    public static void listurites(){
+    public static void listurites() {
         festmenyek.clear();
     }
 
@@ -106,7 +108,27 @@ public class Main {
                 index = i;
             }
         }
-        System.out.printf("Feladat3a: A legdrágább festmény a %s",festmenyek.get(index));
+        System.out.printf("Feladat3a: A legdrágább festmény a %s", festmenyek.get(index));
+    }
+
+    public static void fel3b() {
+        boolean volteTiz = false;
+        for (int i = 0; i < festmenyek.size(); i++) {
+            if (festmenyek.get(i).getLicitekSzama() > 10) {
+                volteTiz = true;
+            }
+        }
+        System.out.printf("\n Feladat 3/b: a volt-e tíz értéke: %s", volteTiz);
+    }
+
+    public static void fel3c() {
+        int nemkeltel = 0;
+        for (int i = 0; i < festmenyek.size(); i++) {
+            if (!festmenyek.get(i).isElkelt()){
+                nemkeltel++;
+            }
+        }
+        System.out.printf("Feladat 3/c: Összesen %d festmény nem kelt el.",nemkeltel);
     }
 }
 
