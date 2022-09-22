@@ -17,6 +17,12 @@ public class Festmeny {
         this.stilus = stilus;
     }
 
+    public Festmeny(int licitekSzama, int legmagasabbLicit, boolean eltelt) {
+        this.licitekSzama = licitekSzama;
+        this.legmagasabbLicit = legmagasabbLicit;
+        this.eltelt = eltelt;
+    }
+
     public String getFesto() {
         return festo;
     }
