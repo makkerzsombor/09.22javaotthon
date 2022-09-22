@@ -69,11 +69,18 @@ public class Festmeny {
     public void licit(int mertek) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Kérem adjon meg egy számot 10 és 100 között.");
-        int szazalek = sc.nextInt();
-        while(szazalek<10 || szazalek>100){
+        while (mertek < 10 || mertek > 100) {
             System.out.println("Hiba a szám 10 és 100 között kell, hogy legyen.");
-            szazalek = sc.nextInt();
+            System.out.print("Kérem adjon meg egy másik számot: ");
+            mertek = sc.nextInt();
         }
-        this.legmagasabbLicit = legmagasabbLicit * szazalek/100+1;
+        this.legmagasabbLicit = legmagasabbLicit * mertek / 100 + 1;
+    }
+
+    @Override
+    public String toString() {
+        return this.festo+": "+this.festo+"("+this.stilus+")\n" +
+                this.elkelt+"\n" +
+                "Legmagasabb licit: "+this.legmagasabbLicit+" legutolsó licit Ideje: ( összesen: "+ this.licitekSzama+" db)";
     }
 }
