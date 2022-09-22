@@ -9,7 +9,7 @@ public class Festmeny {
     private int licitekSzama;
     private int legmagasabbLicit;
     private LocalDateTime legutolsoLicitIdeje;
-    private boolean eltelt;
+    private boolean elkelt;
 
     public Festmeny(String cim, String festo, String stilus) {
         this.cim = cim;
@@ -17,10 +17,10 @@ public class Festmeny {
         this.stilus = stilus;
     }
 
-    public Festmeny(int licitekSzama, int legmagasabbLicit, boolean eltelt) {
+    public Festmeny(int licitekSzama, int legmagasabbLicit, boolean elkelt) {
         this.licitekSzama = licitekSzama;
         this.legmagasabbLicit = legmagasabbLicit;
-        this.eltelt = eltelt;
+        this.elkelt = elkelt;
     }
 
     public String getFesto() {
@@ -43,8 +43,8 @@ public class Festmeny {
         return legutolsoLicitIdeje;
     }
 
-    public boolean isEltelt() {
-        return eltelt;
+    public boolean isElkelt() {
+        return elkelt;
     }
 
     public void setElkelt(boolean elketlt){
@@ -52,7 +52,17 @@ public class Festmeny {
     }
 
     public void licit(){
-
+        if (this.elkelt == true){
+            System.out.println("A festmény már elkelt!");
+        }else if (this.licitekSzama == 0){
+            this.legmagasabbLicit = 100;
+            this.licitekSzama = licitekSzama+1;
+            this.legutolsoLicitIdeje = LocalDateTime.now();
+        } else if (this.licitekSzama >= 1) {
+            this.legmagasabbLicit = (int) (legmagasabbLicit * 1.1);
+            this.licitekSzama = licitekSzama+1;
+            this.legutolsoLicitIdeje = LocalDateTime.now();
+        }
     }
 
     public void licit(int mertek){
